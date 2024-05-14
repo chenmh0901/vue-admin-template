@@ -1,10 +1,15 @@
 <script setup lang="ts">
+
 </script>
 
 <template>
-  <div>
-    Hello
-  </div>
+  <RouterView />
 </template>
 
-<style scoped></style>
+<style scoped lang="scss">
+div {
+  h1{
+    color: red;
+  }
+}
+</style>
