@@ -8,7 +8,7 @@ import Setting from './setting/index.vue'
     <div class="tabbar__left">
       <Breadcrumb />
     </div>
-    <div class="tabbar__right">
+    <div class="tabbar__right ">
       <Setting />
     </div>
   </div>

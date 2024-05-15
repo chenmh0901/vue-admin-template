@@ -7,6 +7,7 @@ import 'virtual:svg-icons-register'
 import 'element-plus/dist/index.css'
 import globalComponents from './components/index'
 import './styles/index.scss'
+import '@/router/permission'
 
 const app = createApp(App)
 

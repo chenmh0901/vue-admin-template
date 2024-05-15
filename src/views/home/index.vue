@@ -1,10 +1,12 @@
 <script setup lang="ts">
+import { useUserStore } from '@/store/modules/user'
 
+const userStore = useUserStore()
 </script>
 
 <template>
   <div>
-    <input>
+    {{ userStore.username }}
   </div>
 </template>
 

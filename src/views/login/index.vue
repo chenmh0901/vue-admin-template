@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import { reactive, ref } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { ElNotification } from 'element-plus'
 import { Lock, User } from '@element-plus/icons-vue'
 import { useUserStore } from '@/store/modules/user'
 import { getTime } from '@/utlis/time'
+
+const useStore = useUserStore()
 
 const loginForm = reactive({
   username: 'admin',
@@ -15,8 +17,7 @@ const loginFormRef = ref()
 
 const loading = ref(false)
 const router = useRouter()
-
-const useStore = useUserStore()
+const route = useRoute()
 
 // validator
 function validatorUsername(_rule: any, value: any, callback: any) {
@@ -46,7 +47,10 @@ async function login() {
   try {
     await useStore.userLogin(loginForm)
 
-    router.push('/')
+    if (route.query.redirect)
+      router.push(route.query.redirect as string)
+    else
+      router.push('/home')
 
     ElNotification({
       type: 'success',
