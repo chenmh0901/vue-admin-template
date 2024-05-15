@@ -19,13 +19,13 @@ const router = useRouter()
 const useStore = useUserStore()
 
 // validator
-function validatorUsername(rule: any, value: any, callback: any) {
+function validatorUsername(_rule: any, value: any, callback: any) {
   if (value.length >= 5)
     callback()
   else
     callback(new Error('用户名长度不能小于5位'))
 }
-function validatorPassword(rule: any, value: any, callback: any) {
+function validatorPassword(_rule: any, value: any, callback: any) {
   if (value.length >= 6)
     callback()
   else

@@ -3,12 +3,14 @@ import type { UserState } from './types/type'
 import type { ILoginForm, ILoginResponseData } from '@/api/user/type'
 import { reqlogin } from '@/api/user'
 import { GET_TOKEN, SET_TOKEN } from '@/utlis/token'
+import { routes } from '@/router/index'
 
 export const useUserStore = defineStore('User', {
   state: (): UserState => {
     return {
       // 保持持久化
       token: GET_TOKEN(),
+      menuRoutes: routes,
     }
   },
   actions: {
