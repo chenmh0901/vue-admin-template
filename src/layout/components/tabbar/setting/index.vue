@@ -19,8 +19,8 @@ function fullscreen() {
 
 const router = useRouter()
 const route = useRoute()
-function logout() {
-  userStore.userLoginout()
+async function logout() {
+  await userStore.userLogout()
   router.push({ path: '/login', query: { redirect: route.path } })
 }
 </script>

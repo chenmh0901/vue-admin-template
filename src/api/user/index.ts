@@ -1,15 +1,22 @@
-import type { ILoginForm, ILoginResponseData, IUserResponseData } from './type'
+import type {
+  LoginFormData,
+  LoginResponseData,
+  userInfoResponseData,
+} from './type'
 import request from '@/utlis/request'
 
 enum API {
-  USER_LOGIN = '/user/login',
-  USER_INFO = '/user/info',
+  LOGIN_URL = '/admin/acl/index/login',
+  USERINFO_URL = '/admin/acl/index/info',
+  LOGOUT_URL = '/admin/acl/index/logout',
 }
 
-export function reqlogin(data: ILoginForm) {
-  return request.post<any, ILoginResponseData>(API.USER_LOGIN, data)
+export function reqLogin(data: LoginFormData) {
+  return request.post<any, LoginResponseData>(API.LOGIN_URL, data)
 }
 
 export function reqUserInfo() {
-  return request.get<any, IUserResponseData>(API.USER_INFO)
+  return request.get<any, userInfoResponseData>(API.USERINFO_URL)
 }
+
+export const reqLogOut = () => request.post<any, any>(API.LOGOUT_URL)

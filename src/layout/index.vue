@@ -34,7 +34,7 @@ const route = useRoute()
 <style coped lang="scss">
 .layout__container {
   height: 100vh;
-  weight: 100%;
+  width: 100%;
 
   .layout__slider {
     height: 100vh;
@@ -73,7 +73,6 @@ const route = useRoute()
     left:$base-menu-width;
     height: calc(100% - $base-tabbar-height);
     width: calc(100% - $base-menu-width);
-    background-color: yellow;
     overflow: auto;
     padding: 20px;
     transition:all .3s;
