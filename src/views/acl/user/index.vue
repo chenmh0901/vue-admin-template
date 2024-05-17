@@ -8,7 +8,7 @@ import {
   reqSelectUser,
   reqSetUserRole,
   reqUserInfo,
-} from '@/api/acl/user'
+} from '@/api/acl/user/user.ts'
 import type {
   AllRole,
   AllRoleResponseData,
@@ -16,7 +16,7 @@ import type {
   SetRoleData,
   User,
   UserResponseData,
-} from '@/api/acl/type'
+} from '@/api/acl/user/type'
 import { useLayoutSettingStore } from '@/store/modules/setting'
 
 const pageNo = ref<number>(1)

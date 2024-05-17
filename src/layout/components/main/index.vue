@@ -4,11 +4,12 @@ import { useLayoutSettingStore } from '@/store/modules/setting'
 
 const LayoutSettingStore = useLayoutSettingStore()
 
-const key = ref(true)
+const flag = ref(true)
+// 实现刷新
 watch(() => LayoutSettingStore.refresh, () => {
-  key.value = false
+  flag.value = false
   nextTick(() => {
-    key.value = true
+    flag.value = true
   })
 })
 </script>
@@ -16,7 +17,7 @@ watch(() => LayoutSettingStore.refresh, () => {
 <template>
   <RouterView v-slot="{ Component }">
     <Transition name="fade">
-      <component :is="Component" v-if="key" />
+      <component :is="Component" v-if="flag" />
     </Transition>
   </RouterView>
 </template>
