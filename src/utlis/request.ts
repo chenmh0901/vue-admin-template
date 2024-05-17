@@ -7,39 +7,53 @@ const request = axios.create({
   timeout: 5000,
 })
 
-request.interceptors.request.use((config) => {
-  const userStore = useUserStore()
+request.interceptors.request.use(
+  (config) => {
+    const userStore = useUserStore()
 
-  if (userStore.token)
-    config.headers.token = userStore.token
+    if (userStore.token)
+      config.headers.token = userStore.token
 
-  return config
-})
+    return config
+  },
+  (error) => {
+    return Promise.reject(error)
+  },
+)
 
-request.interceptors.response.use((response) => {
-  return response.data
-}, (error) => {
-  let message = error.message
-  const status = error.response.status
-  switch (status) {
-    case 401:
-      message = 'TOKEN失效,请重新登录'
-      break
-    case 403:
-      message = '权限不足，无法访问'
-      break
-    case 404:
-      message = '请求资源不存在'
-      break
-    default:
-      message = '网络出现问题'
-      break
-  }
-  ElMessage({
-    type: 'error',
-    message,
-  })
-  return Promise.reject(error)
-})
+request.interceptors.response.use(
+  (response) => {
+    if (response.status === 200)
+      return Promise.resolve(response.data)
+    else
+      return Promise.reject(response.data)
+  },
+  (error) => {
+    let message = ''
+    const status = error.response.status
+    switch (status) {
+      case 401:
+        message = '未登录'
+        break
+      case 403:
+        message = '登录过期，请重新登录'
+        break
+      case 404:
+        message = '网络请求不存在'
+        break
+      case 500:
+        message = '服务器出现问题'
+        break
+      default:
+        message = error.response.data.message
+        break
+    }
+    ElMessage({
+      type: 'error',
+      message,
+    })
+    return Promise.reject(error)
+  },
+)
 
 export default request
