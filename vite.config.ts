@@ -8,8 +8,6 @@ import { viteMockServe } from 'vite-plugin-mock'
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }: ConfigEnv) => {
   const env = loadEnv(mode, process.cwd())
-  console.log(env)
-
   return {
     plugins: [vue(), createSvgIconsPlugin({
       iconDirs: [path.resolve(process.cwd(), 'src/assets/icons')],

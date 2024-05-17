@@ -3,7 +3,6 @@
 import { nextTick, onMounted, reactive, ref } from 'vue'
 import type { UploadProps } from 'element-plus'
 import { ElMessage } from 'element-plus'
-import Table from './components/table/index.vue'
 import {
   reqAddOrUpdateTrademark,
   reqDeleteTrademark,
@@ -174,7 +173,38 @@ async function removeTradeMark(id: number) {
       添加品牌
     </el-button>
 
-    <Table :trademark-arr="trademarkArr" :update-trademark="updateTrademark" :remove-trade-mark="removeTradeMark" />
+    <el-table border :data="trademarkArr" class="card__table">
+      <el-table-column label="序号" width="80px" align="center" type="index" />
+      <el-table-column label="品牌名称" prop="tmName" />
+      <el-table-column label="品牌LOGO">
+        <template #default="{ row }">
+          <img
+            :src="row.logoUrl" alt="图片丢失"
+            style="width: 100px; height: 100px"
+          >
+        </template>
+      </el-table-column>
+      <el-table-column label="操作">
+        <template #default="{ row }">
+          <el-button
+            type="primary"
+            icon="Edit"
+            class="table__column-btn"
+            @click="updateTrademark(row)"
+          />
+          <el-popconfirm
+            :title="`您确定删除${row.tmName}`"
+            width="250px"
+            icon="delete"
+            @confirm="removeTradeMark(row.id)"
+          >
+            <template #reference>
+              <el-button type="danger" icon="Delete" class="table__column-btn" />
+            </template>
+          </el-popconfirm>
+        </template>
+      </el-table-column>
+    </el-table>
 
     <el-pagination
       v-model:current-page="currentPage"
