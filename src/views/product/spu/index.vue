@@ -4,7 +4,7 @@
 
 <template>
   <div>
-    SPU管理
+    SPU管理与属性管理类似
   </div>
 </template>
 

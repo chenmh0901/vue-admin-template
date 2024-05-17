@@ -59,6 +59,8 @@ function addAttrValue() {
     valueName: '',
     flag: true,
   })
+  // 获得聚焦 focus方法 ref获得组件实例inputArr.value[$index] = vc
+  // nextTick 等待dom渲染完成立即更新视图
   nextTick(() => {
     inputArr.value[attrParams.attrValueList.length - 1].focus()
   })
