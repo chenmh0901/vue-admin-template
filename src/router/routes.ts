@@ -38,6 +38,59 @@ export const constantRoutes = [
     },
   },
   {
+    path: '/product',
+    component: () => import('@/layout/index.vue'),
+    name: 'Goods',
+    meta: {
+      title: '产品管理',
+      hidden: false,
+      icon: 'Grid',
+    },
+    redirect: '/product/trademark',
+    children: [
+      {
+        path: '/product/trademark',
+        component: () => import('@/views/product/trademark/index.vue'),
+        name: 'Trademark',
+        meta: {
+          title: '品牌管理',
+          hidden: false,
+          icon: 'ShoppingCartFull',
+        },
+      },
+      {
+        path: '/product/sku',
+        component: () => import('@/views/product/sku/index.vue'),
+        name: 'Sku',
+        meta: {
+          title: 'sku管理',
+          hidden: false,
+          icon: 'Suitcase',
+        },
+      },
+      {
+        path: '/product/spu',
+        component: () => import('@/views/product/spu/index.vue'),
+        name: 'Spu',
+        meta: {
+          title: 'spu管理',
+          hidden: false,
+          icon: 'Box',
+        },
+      },
+      {
+        path: '/product/attr',
+        component: () => import('@/views/product/attr/index.vue'),
+        name: 'Attr',
+        meta: {
+          title: '属性管理',
+          hidden: false,
+          icon: 'Sell',
+        },
+      },
+    ],
+  },
+  {
     path: '/404',
     component: () => import('@/views/404/index.vue'),
     name: '404',
@@ -87,59 +140,6 @@ export const asyncRoutes = [
           title: '菜单管理',
           hidden: false,
           icon: 'Crop',
-        },
-      },
-    ],
-  },
-  {
-    path: '/product',
-    component: () => import('@/layout/index.vue'),
-    name: 'Goods',
-    meta: {
-      title: '产品管理',
-      hidden: false,
-      icon: 'Grid',
-    },
-    redirect: '/product/trademark',
-    children: [
-      {
-        path: '/product/trademark',
-        component: () => import('@/views/product/trademark/index.vue'),
-        name: 'Trademark',
-        meta: {
-          title: '品牌管理',
-          hidden: false,
-          icon: 'ShoppingCartFull',
-        },
-      },
-      {
-        path: '/product/sku',
-        component: () => import('@/views/product/sku/index.vue'),
-        name: 'Sku',
-        meta: {
-          title: 'sku管理',
-          hidden: false,
-          icon: 'Suitcase',
-        },
-      },
-      {
-        path: '/product/spu',
-        component: () => import('@/views/product/spu/index.vue'),
-        name: 'Spu',
-        meta: {
-          title: 'spu管理',
-          hidden: false,
-          icon: 'Box',
-        },
-      },
-      {
-        path: '/product/attr',
-        component: () => import('@/views/product/attr/index.vue'),
-        name: 'Attr',
-        meta: {
-          title: '属性管理',
-          hidden: false,
-          icon: 'Sell',
         },
       },
     ],
