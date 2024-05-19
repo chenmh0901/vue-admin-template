@@ -6,7 +6,7 @@ import type {
   userInfoResponseData,
 } from '@/api/user/type'
 import { reqLogOut, reqLogin, reqUserInfo } from '@/api/user'
-import { GET_TOKEN, REMOVE_TOKEN, SET_TOKEN } from '@/utlis/token'
+import { GET_TOKEN, REMOVE_TOKEN, SET_TOKEN } from '@/utils/token'
 import { routes } from '@/router/routes'
 
 export const useUserStore = defineStore('User', {

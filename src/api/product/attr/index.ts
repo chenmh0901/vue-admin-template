@@ -1,5 +1,5 @@
 import type { Attr, AttrResponseData, CategoryResponseData } from './type'
-import request from '@/utlis/request'
+import request from '@/utils/request'
 
 enum API {
   C1_URL = '/admin/product/getCategory1',

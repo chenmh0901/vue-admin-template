@@ -5,7 +5,7 @@ import type {
   UserResponseData,
 } from './type'
 
-import request from '@/utlis/request'
+import request from '@/utils/request'
 
 enum API {
   ALLUSER_URL = '/admin/acl/user/',

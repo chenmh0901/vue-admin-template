@@ -3,7 +3,7 @@ import type {
   LoginResponseData,
   userInfoResponseData,
 } from './type'
-import request from '@/utlis/request'
+import request from '@/utils/request'
 
 enum API {
   LOGIN_URL = '/admin/acl/index/login',

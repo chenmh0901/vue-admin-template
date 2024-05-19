@@ -4,7 +4,7 @@ import { useRoute, useRouter } from 'vue-router'
 import { ElNotification } from 'element-plus'
 import { Lock, User } from '@element-plus/icons-vue'
 import { useUserStore } from '@/store/modules/user'
-import { getTime } from '@/utlis/time'
+import { getTime } from '@/utils/time'
 
 const useStore = useUserStore()
 
@@ -127,3 +127,4 @@ async function login() {
   }
 }
 </style>
+@/utils/time

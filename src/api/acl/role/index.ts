@@ -1,5 +1,5 @@
 import type { MenuResponseData, RoleData, RoleResponseData } from './type'
-import request from '@/utlis/request'
+import request from '@/utils/request'
 
 enum API {
   ALLROLE_URL = '/admin/acl/role/',
