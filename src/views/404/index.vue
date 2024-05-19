@@ -42,7 +42,7 @@ function goHome() {
     <em>location</em>
     = home;}
   </code>
-  <center><a @click="goHome">HOME</a></center>
+  <a @click="goHome">HOME</a>
 </template>
 
 <style lang="scss" scoped>

@@ -10,9 +10,10 @@ import './styles/index.scss'
 import '@/permission'
 import 'element-plus/theme-chalk/el-notification.css'
 import 'element-plus/theme-chalk/dark/css-vars.css'
+import { isHasButton } from './directive/has'
 
 const app = createApp(App)
-
+isHasButton(app)
 app.use(ElementPlus)
   .use(globalComponents)
   .use(router)

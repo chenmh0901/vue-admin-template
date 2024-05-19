@@ -26,7 +26,7 @@ router.beforeEach(async (to, _from, next) => {
       else {
         try {
           await userStore.getUserInfo()
-          next()
+          next({ ...to })
         }
         catch (error) {
           await userStore.userLogout()
