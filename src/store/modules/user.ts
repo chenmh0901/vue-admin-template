@@ -59,8 +59,8 @@ export const useUserStore = defineStore('User', {
           res.data.routes,
         )
         // 权限管理
-        this.menuRoutes = [...constantRoutes, ...userAsyncRoute, anyRoutes]
-        dynamicRoutes = [...userAsyncRoute, anyRoutes] // 记录动态添加的路由
+        this.menuRoutes = [...constantRoutes, ...userAsyncRoute, ...anyRoutes]
+        dynamicRoutes = [...userAsyncRoute, ...anyRoutes] // 记录动态添加的路由
         dynamicRoutes.forEach((route) => {
           router.addRoute(route) // 动态添加路由
         })

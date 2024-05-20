@@ -8,41 +8,18 @@ function goHome() {
 </script>
 
 <template>
-  <p>
-    HTTP:
-    <span>404</span>
-  </p>
-  <code>
-    <span>this_page</span>
-    .
-    <em>not_found</em>
-    = true;
-  </code>
-  <code>
-    <span>if</span>
-    (
-    <b>you_spelt_it_wrong</b>
-    ) {
-    <span>try_again()</span>
-    ;}
-  </code>
-  <code>
-    <span>
-      else if (
-      <b>we_screwed_up</b>
-      )
-    </span>
-    {
-    <em>alert</em>
-    (
-    <i>"We're really sorry about that."</i>
-    );
-    <span>window</span>
-    .
-    <em>location</em>
-    = home;}
-  </code>
-  <a @click="goHome">HOME</a>
+  <div>
+    <p>
+      HTTP:
+      <span>404</span>
+    </p>
+    <code>
+      <span>this_page is not found</span>
+    </code>
+    <code>
+      <a style="cursor: pointer;" @click="goHome">HOME</a>
+    </code>
+  </div>
 </template>
 
 <style lang="scss" scoped>
@@ -53,15 +30,15 @@ function goHome() {
   box-sizing: border-box;
 }
 
-body {
-  background: #282828;
+div {
   overflow: hidden;
+  height: 100vh;
 }
 
 p {
   font-family: 'Bevan', cursive;
   font-size: 130px;
-  margin: 10vh 0 0;
+  margin: 10vh 0 10vh;
   text-align: center;
   letter-spacing: 5px;
   background-color: black;
@@ -84,17 +61,7 @@ code {
 }
 code span {
   color: #f0c674;
-}
-code i {
-  color: #b5bd68;
-}
-code em {
-  color: #b294bb;
-  font-style: unset;
-}
-code b {
-  color: #81a2be;
-  font-weight: 500;
+  font-size: 20px;
 }
 
 a {
